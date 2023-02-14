@@ -1,0 +1,17 @@
+{
+  "navbar": [
+    { "label": "About", "href": "/about" }
+  ],
+  "footer": [
+    { "label": "About", "href": "/about" }
+  ],
+  "seo": {
+    "home": {
+      "description": "We are a unique software engineering firm, with a track record of rapidly delivering high-quality IT systems to meet challenging business objectives.",
+      "image": "homepage-banner.jpg"
+    },
+    "about": {
+      "description": "Teamwork is at the heart of our culture, our internal knowledge sharing and collaborative culture are what allow us to deliver as efficiently as we do."
+    }
+  }
+}

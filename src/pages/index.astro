@@ -1,0 +1,38 @@
+---
+import { getImage } from '@astrojs/image'
+import Banner from '../components/Banner.astro'
+import Section from '../components/Section.astro'
+import Layout from '../layouts/Layout.astro'
+
+const siteMetadata = await Astro.glob('../data/metadata.json')
+
+const homepageBannerPicture = await getImage({
+  src: import('../assets/images/homepage-banner.jpg'),
+  width: 1700,
+  quality: 90,
+  alt: 'homepage banner'
+}).then((img) => img.src)
+
+---
+
+<Layout title='JUXT' navbar navbarNoBg>
+  <main>
+    <Banner
+      navbarNoBg
+      text='Scaling Simplicity'
+      style={{
+        backgroundImage: `url(${homepageBannerPicture})`
+      }}
+    />
+    <Section className='bg-gray-800 py-28 text-white'>
+      <h2 class='pb-4 text-3xl md:text-4xl'>
+        Complexity limits your organization’s potential
+      </h2>
+      <p class='text-xl md:text-2xl font-extralight'>
+        We are a unique software engineering firm, with a track record of
+        rapidly delivering high-quality IT systems to meet challenging business
+        objectives.
+      </p>
+    </Section>
+  </main>
+</Layout>

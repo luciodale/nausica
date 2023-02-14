@@ -1,0 +1,119 @@
+---
+import Footer from '../components/Footer.astro'
+import Navbar from '../components/Navbar.astro'
+import { capitalizeFirstLetter, currentPage } from '../utils'
+import { getImage } from '@astrojs/image'
+import '../assets/styles/tailwind.css'
+
+type LayoutProps = {
+  title?: string
+  navbar?: boolean
+  navbarNoBg?: boolean
+  ogImage?: string
+  ogTitle?: string
+  ogDescription?: string
+  noFooter?: boolean
+}
+
+const url = new URL(Astro.request.url)
+const currentPageName =
+  currentPage(url.pathname) || (url.pathname === '/' && 'home')
+
+type Metadata = {
+  homepage: {
+    featuredBlogs: string[]
+    featuredCaseStudies: string[]
+  }
+  navbar: { label: string; href: string }[]
+  footer: { label: string; href: string; flag?: string }[]
+  seo: Record<string, { description: string; image?: string }>
+}
+
+const { title, navbar, navbarNoBg, ogImage, ogTitle, ogDescription, noFooter } =
+  Astro.props as LayoutProps
+
+const [{ seo }] = await Astro.glob<Metadata>('../data/metadata.json')
+
+const currentDescription =
+  ogDescription ?? (seo[currentPageName] && seo[currentPageName].description)
+
+// image attributes must be all jpgs and located in src/assets/images/ dir
+let imageForShare
+if (seo[currentPageName] && seo[currentPageName].image) {
+  const imgNoExt = seo[currentPageName].image.split('.').slice(0, -1).join('.')
+  let importedPic = await getImage({
+    src: import(`../assets/images/${imgNoExt}.jpg`),
+    width: 1700,
+    alt: 'background',
+    quality: 90
+  }).then((img) => img.src)
+  imageForShare = `${url.origin}${importedPic}`
+}
+
+const metaTitle = ogTitle ?? currentPageName
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    {currentDescription && (
+      <meta name='description' content={currentDescription} />
+    )}
+    <!-- Meta Tags -->
+    <meta property='og:url' content={url.href} />
+    <meta property='og:type' content='website' />
+    <meta property='og:title' content={metaTitle} />
+    {currentDescription && (
+      <meta property='og:description' content={currentDescription} />
+    )}
+    {imageForShare && <meta property='og:image' content={imageForShare} />}
+    {imageForShare && (
+      <meta property='og:image:secure_url' content={imageForShare} />
+    )}
+
+    <!-- Twitter Meta Tags -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta property='twitter:domain' content={url.hostname} />
+    <meta property='twitter:url' content={url.href} />
+    <meta name='twitter:title' content={metaTitle} />
+    {currentDescription && (
+      <meta name='twitter:description' content={currentDescription} />
+    )}
+    {imageForShare && <meta name='twitter:image' content={imageForShare} />}
+
+    <meta name='viewport' content='width=device-width' />
+    <link href='/images/favicon.png' rel='shortcut icon' type='image/x-icon' />
+    <link href='/images/favicon-apple.svg' rel='apple-touch-icon' />
+    <link rel='stylesheet' href='/styles/inter.css' />
+
+    <title>{title || capitalizeFirstLetter(currentPageName)}</title>
+    <!-- This is intentionally inlined to avoid FOUC -->
+    <script>
+      const root = document.documentElement
+      const theme = localStorage.getItem('theme')
+      if (
+        theme === 'dark' ||
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        root.classList.add('dark')
+        document.documentElement.style.setProperty('color-scheme', 'dark')
+      } else {
+        document.documentElement.style.setProperty('color-scheme', 'light')
+        root.classList.remove('dark')
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class='bg-gray-50 transition-colors dark:bg-gray-900'>
+    {navbar && <Navbar navbarNoBg={navbarNoBg} />}
+    <div class:list={[{ 'pt-14': !navbarNoBg && navbar }]}>
+      <slot />
+      {!noFooter && <Footer />}
+    </div>
+  </body>
+</html>

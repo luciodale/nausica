@@ -1,0 +1,23 @@
+---
+import { getImage } from '@astrojs/image'
+import Banner from '../components/Banner.astro'
+import Layout from '../layouts/Layout.astro'
+
+const picture404 = await getImage({
+  src: import('../assets/images/404.jpg'),
+  width: 1700,
+  quality: 90,
+  alt: '404'
+}).then((img) => img.src)
+---
+
+<Layout navbar title='Page not found'>
+  <main>
+    <Banner
+      text='404'
+      style={{
+        backgroundImage: `url(${picture404})`
+      }}
+    />
+  </main>
+</Layout>

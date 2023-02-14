@@ -1,0 +1,15 @@
+---
+export type SectionProps = {
+  className?: string
+  style?: string | Record<string, string | number>
+  id?: string
+}
+
+const { className, style, id } = Astro.props as SectionProps
+---
+
+<div style={style} class={className} id={id}>
+  <div class='mx-auto px-4 sm:px-12 2xl:px-0 max-w-7xl'>
+    <slot />
+  </div>
+</div>

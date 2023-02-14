@@ -1,0 +1,28 @@
+# build output
+dist/
+.output/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.cache/
+
+# macOS-specific files
+.DS_Store
+
+.calva/
+.nrepl-port
+/public/styles/global.css
+
+# Emacs files
+*~
+\#*\#
+auto-save-list
+.\#*
+# Local Netlify folder
+.netlify

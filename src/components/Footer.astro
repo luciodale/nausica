@@ -1,0 +1,102 @@
+---
+type Navigation = { label: string; href: string; flag?: boolean }
+
+const navigation = await Astro.glob<{ footer: Navigation[] }>(
+  '../data/metadata.json'
+)
+
+const [{ footer }] = navigation
+
+const pagesInFooter = footer
+---
+
+<div class='w-full text-white bg-black py-20'>
+  <div
+    class='mx-auto max-w-7xl px-4 sm:px-12 2xl:px-0 gap-16 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-between'
+  >
+    <div class='flex flex-col gap-6 text-sm'>
+      <a target='_blank' class='w-20' href='/'>
+        <img class='w-full' src='/images/logo.svg' alt='' />
+      </a>
+
+      <div class='flex flex-col gap-3'>
+        <div class='flex flex-col gap-2'>
+          <div class='font-semibold text-zinc-300'>Head Office</div>
+          <div class='flex flex-col gap-1 text-xs text-zinc-400 font-light'>
+            <div>Norfolk House, Silbury Blvd.</div>
+            <div>Milton Keynes, MK9 2AH</div>
+            <div>United Kingdom</div>
+          </div>
+        </div>
+
+        <div class='text-zinc-300 text-xs font-light'>
+          Company registration: 08457399
+        </div>
+
+        <div class='text-zinc-300 text-xs font-light'>
+          Copyright © JUXT LTD. 2012-2022
+        </div>
+        <a
+          href='/privacy-policy/privacy-policy'
+          class='text-zinc-300 text-xs font-light underline'
+        >
+          Privacy Policy
+        </a>
+        <a
+          href='/privacy-policy/terms-of-use'
+          class='text-zinc-300 text-xs font-light underline'
+        >
+          Terms of Use
+        </a>
+      </div>
+    </div>
+
+    <div class='flex flex-col gap-6'>
+      <div class='text-zinc-400 text-sm'>Sitemap</div>
+      <div class='flex flex-col gap-4 font-light'>
+        {pagesInFooter.map((page) => (
+          <a
+            class='flex gap-1 items-center text-zinc-100 capitalize text-xs hover:text-orange-500 transition-colors'
+            href={page.href}
+          >
+            {page.label}
+            {page.flag && (
+              <div class='font-normal uppercase text-[0.6rem] rounded-lg bg-gray-700 tracking-wider text-white px-1.5 py-[0.1rem]'>
+                {page.flag}
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class='flex flex-col gap-6'>
+      <div class='text-zinc-400 text-sm'>Follow Us</div>
+      <div class='flex flex-col gap-4 font-light'></div>
+
+      <div class='text-zinc-400 text-sm'>Members</div>
+      <div class='flex flex-col gap-4 font-light'>
+        <a
+          target='_blank'
+          class='group text-zinc-100 flex gap-2 items-center text-xs capitalize hover:text-orange-500 transition-colors'
+          href='https://juxt.land/login'
+        >
+          <p>Login</p>
+        </a>
+      </div>
+    </div>
+
+    <div class='flex flex-col gap-6'>
+      <div class='text-zinc-400 text-sm'>XTDB</div>
+      <div class='flex flex-col gap-4 font-light'>
+        <a
+          target='_blank'
+          class='group text-zinc-100 flex gap-2 items-center text-xs capitalize hover:text-orange-500 transition-colors'
+          href='https://xtdb.com/'
+        >
+          xtdb
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
