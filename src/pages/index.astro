@@ -1,13 +1,14 @@
 ---
 import { getImage } from '@astrojs/image'
-import Banner from '../components/Banner.astro'
 import Layout from '../layouts/Layout.astro'
-const siteMetadata = await Astro.glob('../data/metadata.json')
-
 import slide1 from '../assets/images/slide1.jpeg'
 import slide2 from '../assets/images/slide2.jpeg'
+import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
+import { ButtonWave } from '../components/ButtonWave'
 
-const carouselImages = [
+const siteMetadata = await Astro.glob('../data/metadata.json')
+
+const carouselImages: Carousel[] = [
   {
     src: slide1.src,
     text: "A chi preferisce il clima del paradiso, puttosto che la compagnia dell'inferno.",
@@ -28,91 +29,16 @@ const homepageBannerPicture = await getImage({
 }).then((img) => img.src)
 ---
 
-<Layout title='JUXT' navbar navbarNoBg>
+<Layout title='Nausica Beach' navbar navbarNoBg>
   <main>
-    <div class='splide'>
-      <div class='splide__track h-screen'>
-        <div class='splide__list'>
-          {
-            carouselImages.map(({ src, alt, text }) => (
-              <div class='relative splide__slide flex place-content-center w-full h-full'>
-                <h1 class='text-3xl z-20 relative md:text-5xl w-3/4 text-center leading-normal md:leading-normal font-light drop-shadow-lg shadow-black'>
-                  {text}
-                </h1>
-                <div class='absolute inset-0 h-screen bg-black z-10 opacity-40' />
-                <img
-                  src={src}
-                  alt={alt}
-                  class=' bg-red-500 w-full object-cover absolute inset-0 h-screen'
-                />
-              </div>
-            ))
-          }
+    <BannerSlider carousel={carouselImages} />
+
+    <div class='w-full py-16 bg-blue-600'>
+      <div class='h-full flex gap-8 justify-center items-center'>
+        <div class='text-4xl font-extralight text-white'>
+          Welcome to Nausica Beach
         </div>
-      </div>
-    </div>
-
-    <link rel='stylesheet' href='/styles/splide.min.css' />
-    <script is:inline src='/scripts/splide.min.js'></script>
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
-        new Splide('.splide', {
-          type: 'fade',
-          perPage: 1,
-          focus: 'center',
-          autoWidth: true,
-          rewind: true,
-          rewindByDrag: true,
-          autoplay: true,
-          interval: 3000,
-          throttle: 300
-        }).mount()
-      })
-    </script>
-
-    <div class='w-full h-40' style={{ background: '#B9BAA3' }}>
-      <div
-        class='h-full flex flex-col justify-center items-center text-4xl font-light text-black'
-      >
-        <div>Welcome to Nausica Beach!</div>
-
-        <div>
-          <div class='buttons'>
-            <button class='blob-btn'>
-              Blob Button
-              <span class='blob-btn__inner'>
-                <span class='blob-btn__blobs'>
-                  <span class='blob-btn__blob'></span>
-                  <span class='blob-btn__blob'></span>
-                  <span class='blob-btn__blob'></span>
-                  <span class='blob-btn__blob'></span>
-                </span>
-              </span>
-            </button>
-            <br />
-
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              version='1.1'
-              class='absolute'
-            >
-              <defs>
-                <filter id='goo'>
-                  <feGaussianBlur
-                    in='SourceGraphic'
-                    result='blur'
-                    stdDeviation='10'></feGaussianBlur>
-                  <feColorMatrix
-                    in='blur'
-                    mode='matrix'
-                    values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7'
-                    result='goo'></feColorMatrix>
-                  <feBlend in2='goo' in='SourceGraphic' result='mix'></feBlend>
-                </filter>
-              </defs>
-            </svg>
-          </div>
-        </div>
+        <ButtonWave client:only label='Contattaci' />
       </div>
     </div>
   </main>

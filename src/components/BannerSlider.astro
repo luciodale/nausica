@@ -1,0 +1,49 @@
+---
+export type Carousel = {
+  src: string
+  alt: string
+  text: string
+}
+
+const { carousel } = Astro.props as { carousel: Carousel[] }
+---
+
+<link rel='stylesheet' href='/styles/splide.min.css' />
+<div class='splide'>
+  <div class='splide__track h-screen'>
+    <div class='splide__list'>
+      {
+        carousel.map(({ src, alt, text }) => (
+          <div class='relative splide__slide flex place-content-center w-full h-full'>
+            <h1 class='text-white text-3xl z-20 relative md:text-5xl w-3/4 text-center leading-normal md:leading-normal font-light drop-shadow-lg shadow-black'>
+              {text}
+            </h1>
+            <div class='absolute inset-0 h-screen bg-black z-10 opacity-40' />
+            <img
+              src={src}
+              alt={alt}
+              class='w-full object-cover absolute inset-0 h-screen'
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script is:inline src='/scripts/splide.min.js'></script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Splide('.splide', {
+      type: 'fade',
+      perPage: 1,
+      focus: 'center',
+      autoWidth: true,
+      rewind: true,
+      rewindByDrag: true,
+      autoplay: true,
+      interval: 3000,
+      throttle: 300
+    }).mount()
+  })
+</script>
