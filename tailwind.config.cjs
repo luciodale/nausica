@@ -8,6 +8,7 @@ module.exports = {
   content: ['./src/**/*.{astro,html,md,mdx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {},
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
       },

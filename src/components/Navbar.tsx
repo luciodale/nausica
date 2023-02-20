@@ -19,8 +19,8 @@ function NavLink({ label, href, target, active }: NavLinkProp) {
     <a
       {...targetProp}
       className={classNames(
-        'hover:text-orange-500 transition-colors first-of-type:pt-4 md:first-of-type:pt-0',
-        active ? 'text-orange-500' : 'text-white'
+        'nav-link text-black hover:text-blue-500 transition-colors first-of-type:pt-4 md:first-of-type:pt-0',
+        active ?? 'text-blue-500'
       )}
       href={href}
     >
@@ -29,41 +29,29 @@ function NavLink({ label, href, target, active }: NavLinkProp) {
   )
 }
 
-export default function Navbar({ navLinks, navbarNoBg }) {
+type Navbar = { navLinks: NavLinkProp[] }
+
+export default function Navbar({ navLinks }: Navbar) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const ref = useOutsideClick(() => setIsMenuOpen(false))
   const linkClasses = 'items-center gap-8 uppercase tracking-widest text-xs'
 
-  useEffect(() => {
-    function updateNavBg() {
-      if (window.scrollY > 0) {
-        ref.current.classList.add('bg-black')
-      } else {
-        ref.current.classList.remove('bg-black')
-      }
-    }
-    navbarNoBg && updateNavBg()
-    navbarNoBg && window.addEventListener('scroll', updateNavBg)
-    return () => {
-      navbarNoBg && window.removeEventListener('scroll', updateNavBg)
-    }
-  }, [])
-
   return (
     <nav
-      className={classNames('w-full fixed transition-all z-50 md:py-4 h-14', {
-        'bg-black': !navbarNoBg
-      })}
+      className={classNames(
+        'w-full fixed transition-all bg-white z-50 md:py-4 h-14'
+      )}
       ref={ref}
     >
-      <div className='container mx-auto px-4 sm:px-12 2xl:px-0 max-w-7xl flex flex-wrap items-center justify-between h-full'>
+      <div className='transition-all text-black container mx-auto px-4 sm:px-12 2xl:px-0 max-w-7xl flex flex-wrap items-center justify-between h-full'>
         <a href='/' class='flex items-center w-20 z-10'>
-          <img src={logo} alt='Juxt Logo' />
+          {/* <img src={logo} alt='Juxt Logo' /> */}
+          NAUSICA
         </a>
         <button
           data-collapse-toggle='navbar-default'
           type='button'
-          className='z-10 inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600'
+          className='group z-10 inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600'
           aria-controls='navbar-default'
           aria-expanded='false'
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -71,10 +59,9 @@ export default function Navbar({ navLinks, navbarNoBg }) {
           <span className='sr-only'>Open main menu</span>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            class='w-6 h-6'
+            class='w-6 h-6 stroke-black group-hover:stroke-white'
             fill='none'
             viewBox='0 0 24 24'
-            stroke='white'
           >
             <path
               stroke-linecap='round'
@@ -99,13 +86,11 @@ export default function Navbar({ navLinks, navbarNoBg }) {
 
         {/* mobile */}
         <div
+          id='navbar-mobile'
           className={classNames(
-            'absolute left-0 flex bg-black w-full flex-col md:hidden overflow-hidden transition-all',
+            'absolute left-0 top-14 flex bg-white w-full flex-col md:hidden overflow-hidden transition-all',
             linkClasses,
             {
-              'top-0': navbarNoBg,
-              'top-14': !navbarNoBg,
-              'pt-14': navbarNoBg && isMenuOpen,
               'max-h-0': !isMenuOpen,
               'max-h-screen pb-4': isMenuOpen
             }

@@ -29,16 +29,20 @@ const homepageBannerPicture = await getImage({
 }).then((img) => img.src)
 ---
 
-<Layout title='Nausica Beach' navbar navbarNoBg>
+<Layout title='Nausica Beach' navbar>
   <main>
     <BannerSlider carousel={carouselImages} />
 
     <div class='w-full py-16 bg-blue-600'>
-      <div class='h-full flex gap-8 justify-center items-center'>
-        <div class='text-4xl font-extralight text-white'>
+      <div
+        class='h-full flex flex-col md:flex-row gap-8 justify-center items-center'
+      >
+        <div class='text-4xl text-center font-extralight text-white'>
           Welcome to Nausica Beach
         </div>
-        <ButtonWave client:only label='Contattaci' />
+        <div class='px-2'>
+          <ButtonWave client:only label='Contattaci' />
+        </div>
       </div>
     </div>
   </main>

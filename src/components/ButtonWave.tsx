@@ -52,7 +52,7 @@ export function ButtonWave({ label, mode = 'onDark', ...props }: ButtonProps) {
       <svg
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
-        className='absolute'
+        style='display: none;'
       >
         <defs>
           <filter id='goo'>

@@ -5,15 +5,18 @@ export interface Props {
   navbarNoBg: boolean
 }
 
-type Navigation = { label: string; href: string; target?: string }
+export type Navigation = {
+  label: string
+  href: string
+  target?: string
+  active?: boolean
+}
 
 const navigation = await Astro.glob<{ navbar: Navigation[] }>(
   '../data/metadata.json'
 )
 
 const [{ navbar }] = navigation
-
-const { navbarNoBg } = Astro.props as Props
 
 const url = new URL(Astro.request.url)
 const currentPage = url.pathname
@@ -26,4 +29,4 @@ const pagesInNavbar = navbar.map((page) => ({
 }))
 ---
 
-<Navbar client:visible navLinks={pagesInNavbar} navbarNoBg={navbarNoBg} />
+<Navbar client:visible navLinks={pagesInNavbar} />
