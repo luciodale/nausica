@@ -1,12 +1,12 @@
 ---
 import { getImage } from '@astrojs/image'
-import Layout from '../layouts/Layout.astro'
-import Section from '../components/Section.astro'
 import slide1 from '../assets/images/slide1.jpeg'
 import slide2 from '../assets/images/slide2.jpeg'
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
 import { ButtonWave } from '../components/ButtonWave'
 import { Contact } from '../components/Contact'
+import Layout from '../layouts/Layout.astro'
+import { Fb, Ig } from '../components/Logos'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
 
@@ -32,7 +32,21 @@ const homepageBannerPicture = await getImage({
 ---
 
 <Layout title='Nausica Beach' navbar>
-  <main>
+  <main class='relative'>
+    <div
+      class='fixed top-20 left-0 z-10 flex bg-white bg-opacity-40 flex-col p-2 rounded-r-lg'
+    >
+      <a href='https://www.facebook.com/lidonausicabeach' target='_blank'>
+        <Fb
+          className='transition-all fill-white stroke-white w-10 hover:fill-blue-500 hover:stroke-blue-500'
+        />
+      </a>
+      <a href='https://www.instagram.com/nausica_beach/' target='_blank'>
+        <Ig
+          className='transition-all fill-white stroke-white w-10 hover:fill-blue-500 hover:stroke-blue-500'
+        />
+      </a>
+    </div>
     <BannerSlider carousel={carouselImages} />
 
     <div class='w-full py-16 bg-blue-600'>

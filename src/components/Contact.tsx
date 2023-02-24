@@ -71,8 +71,6 @@ export function Contact() {
 
   return (
     <>
-      {/*  write an a tag with mailto as href and add subject line and message */}
-
       <div className=' bg-white py-20 px-4 sm:px-0 flex justify-center'>
         <div className='w-full sm:w-[500px]'>
           <div
