@@ -3,7 +3,7 @@ import classNames from 'classnames'
 export function Loader({
   width = 'w-20',
   height = 'h-20',
-  color = 'bg-blue-500'
+  color = 'bg-tortora-500'
 }: {
   width?: string
   height?: string
