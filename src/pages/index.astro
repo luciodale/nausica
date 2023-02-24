@@ -1,10 +1,12 @@
 ---
 import { getImage } from '@astrojs/image'
 import Layout from '../layouts/Layout.astro'
+import Section from '../components/Section.astro'
 import slide1 from '../assets/images/slide1.jpeg'
 import slide2 from '../assets/images/slide2.jpeg'
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
 import { ButtonWave } from '../components/ButtonWave'
+import { Contact } from '../components/Contact'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
 
@@ -37,13 +39,16 @@ const homepageBannerPicture = await getImage({
       <div
         class='h-full flex flex-col md:flex-row gap-8 justify-center items-center'
       >
-        <div class='text-4xl text-center font-extralight text-white'>
+        <div
+          class='px-4 sm:px-0 text-4xl text-center font-extralight text-white'
+        >
           Welcome to Nausica Beach
         </div>
-        <div class='px-2'>
-          <ButtonWave client:only label='Contattaci' />
+        <div class='px-4'>
+          <ButtonWave client:only label='Contattaci' href='#contact-us' />
         </div>
       </div>
     </div>
+    <Contact client:only />
   </main>
 </Layout>

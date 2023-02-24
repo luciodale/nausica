@@ -4,7 +4,7 @@ import { JSX } from 'preact'
 type ButtonProps = {
   label: string
   mode?: 'onDark' | 'onLight'
-} & JSX.HTMLAttributes<HTMLButtonElement>
+} & JSX.HTMLAttributes<HTMLAnchorElement>
 
 const colors = {
   onDark: {
@@ -26,7 +26,7 @@ export function ButtonWave({ label, mode = 'onDark', ...props }: ButtonProps) {
   } = colors[mode]
   return (
     <div className='buttons'>
-      <button
+      <a
         className={classNames(
           blobBtn,
           'blob-btn px-5 py-4 rounded-full before:rounded-full text-sm font-extrabold before:border'
@@ -46,7 +46,7 @@ export function ButtonWave({ label, mode = 'onDark', ...props }: ButtonProps) {
             ))}
           </span>
         </span>
-      </button>
+      </a>
       <br />
 
       <svg
