@@ -8,14 +8,16 @@ type ButtonProps = {
 
 const colors = {
   onDark: {
-    'blob-btn': 'text-white hover:text-blue-600 before:border-white',
+    'blob-btn':
+      'text-tortora-900 hover:text-tortora-900 before:border-tortora-900',
     'blob-btn__inner': 'bg-transparent',
-    'blob-btn__blob': 'bg-white'
+    'blob-btn__blob': 'bg-tortora-300'
   },
   onLight: {
-    'blob-btn': 'text-blue-600 hover:text-white before:border-blue-600',
+    'blob-btn':
+      'text-blue-600 hover:text-tortora-900 before:border-tortora-900',
     'blob-btn__inner': 'bg-transparent',
-    'blob-btn__blob': 'bg-blue-600'
+    'blob-btn__blob': 'bg-tortora-300'
   }
 }
 export function ButtonWave({ label, mode = 'onDark', ...props }: ButtonProps) {

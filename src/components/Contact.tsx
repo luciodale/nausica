@@ -3,7 +3,7 @@ import { useState } from 'preact/hooks'
 import { Loader } from './Loader'
 
 const inputClass =
-  'p-3 text-black rounded-lg bg-transparent border border-blue-500 focus:border-blue-600 focus:outline-double focus:outline-blue-500'
+  'p-3 text-black rounded-lg bg-transparent border border-tortora-600 focus:border-tortora-900 focus:outline-double focus:outline-tortora-900'
 
 export function Contact() {
   const [formState, setFormState] = useState<
@@ -71,11 +71,11 @@ export function Contact() {
 
   return (
     <>
-      <div className=' bg-white py-20 px-4 sm:px-0 flex justify-center'>
+      <div className='bg-tortora-200 py-10 px-4 sm:px-0 flex justify-center'>
         <div className='w-full sm:w-[500px]'>
           <div
             id='contact-us'
-            className='scroll-mt-14 text-3xl font-light text-blue-500 text-center pb-6'
+            className='scroll-mt-14 text-3xl font-light text-tortora-900 text-center pb-6'
           >
             Contattaci
           </div>
@@ -116,7 +116,7 @@ export function Contact() {
 
               <button
                 type='submit'
-                className='uppercase rounded-lg p-4 text-sm font-extrabold text-white bg-blue-500 hover:shadow-lg'
+                className='uppercase rounded-lg p-4 text-sm font-extrabold text-tortora-200 bg-tortora-500 border border-tortora-900 hover:shadow-lg'
               >
                 Invia messaggio
               </button>

@@ -1,24 +1,44 @@
 ---
 import { getImage } from '@astrojs/image'
-import slide1 from '../assets/images/slide1.jpeg'
-import slide2 from '../assets/images/slide2.jpeg'
+import slide1 from '../assets/images/foto1.jpeg'
+import slide2 from '../assets/images/foto2.jpeg'
+import slide3 from '../assets/images/foto3.jpeg'
+import slide4 from '../assets/images/foto4.jpeg'
+import slide5 from '../assets/images/foto5.jpeg'
+
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
 import { ButtonWave } from '../components/ButtonWave'
 import { Contact } from '../components/Contact'
 import Layout from '../layouts/Layout.astro'
 import { Fb, Ig } from '../components/Logos'
+import logo from '../assets/images/logo.jpg'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
 
 const carouselImages: Carousel[] = [
   {
     src: slide1.src,
-    text: "A chi preferisce il clima del paradiso, puttosto che la compagnia dell'inferno.",
+    text: 'Il mare ha il potere di catturare la nostra immaginazione',
     alt: 'slide 1'
   },
   {
     src: slide2.src,
-    text: 'A chi non si preoccupa del traguardo, ma pensa piuttosto a godersi il viaggio.',
+    text: '',
+    alt: 'slide 2'
+  },
+  {
+    src: slide3.src,
+    text: '',
+    alt: 'slide 2'
+  },
+  {
+    src: slide4.src,
+    text: '',
+    alt: 'slide 2'
+  },
+  {
+    src: slide5.src,
+    text: 'Il mare al tramonto ispira i sogni più grandi, le speranze più profonde e le emozioni più forti',
     alt: 'slide 2'
   }
 ]
@@ -32,7 +52,13 @@ const homepageBannerPicture = await getImage({
 ---
 
 <Layout title='Nausica Beach' navbar>
-  <main class='relative'>
+  <main class='relative w-full'>
+    <a
+      href='/'
+      class='flex items-center w-52 z-50 absolute -top-[56px] right-1/2 translate-x-1/2'
+    >
+      <img src={logo.src} alt='Juxt Logo' />
+    </a>
     <div
       class='fixed top-20 left-0 z-10 flex bg-white bg-opacity-40 flex-col p-2 rounded-r-lg'
     >
@@ -49,12 +75,10 @@ const homepageBannerPicture = await getImage({
     </div>
     <BannerSlider carousel={carouselImages} />
 
-    <div class='w-full py-16 bg-blue-600'>
-      <div
-        class='h-full flex flex-col md:flex-row gap-8 justify-center items-center'
-      >
+    <div class='w-full py-16 bg-tortora-500'>
+      <div class='h-full flex flex-col gap-8 justify-center items-center'>
         <div
-          class='px-4 sm:px-0 text-4xl text-center font-extralight text-white'
+          class='px-4 sm:px-0 text-4xl text-center font-extralight text-tortora-900'
         >
           Welcome to Nausica Beach
         </div>

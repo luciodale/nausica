@@ -15,7 +15,7 @@ const { carousel } = Astro.props as { carousel: Carousel[] }
       {
         carousel.map(({ src, alt, text }) => (
           <div class='relative splide__slide flex place-content-center w-full h-full'>
-            <h1 class='text-white text-3xl z-20 relative md:text-5xl w-3/4 text-center leading-normal md:leading-normal font-light drop-shadow-lg shadow-black'>
+            <h1 class='text-white text-3xl z-20 relative md:text-4xl w-3/4 text-center leading-normal md:leading-normal font-light drop-shadow-lg shadow-black'>
               {text}
             </h1>
             <div class='absolute inset-0 h-screen bg-black z-10 opacity-40' />
@@ -43,7 +43,7 @@ const { carousel } = Astro.props as { carousel: Carousel[] }
       rewind: true,
       rewindByDrag: true,
       autoplay: true,
-      interval: 3000,
+      interval: 2000,
       throttle: 300
     }).mount()
   })
