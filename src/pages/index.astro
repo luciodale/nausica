@@ -58,26 +58,22 @@ const homepageBannerPicture = await getImage({
     >
       <img src='/images/logo.svg' alt='Juxt Logo' />
     </a>
-    <div
-      class='fixed top-20 left-0 z-10 flex bg-white bg-opacity-40 flex-col p-2 rounded-r-lg'
-    >
+    <div class='fixed top-20 left-0 z-10 flex flex-col gap-2 p-2 rounded-r-lg'>
       <a href='https://www.facebook.com/lidonausicabeach' target='_blank'>
-        <Fb
-          className='transition-all fill-white stroke-white w-10 hover:fill-blue-500 hover:stroke-blue-500'
-        />
+        <Fb />
       </a>
       <a href='https://www.instagram.com/nausica_beach/' target='_blank'>
-        <Ig
-          className='transition-all fill-white stroke-white w-10 hover:fill-blue-500 hover:stroke-blue-500'
-        />
+        <Ig />
       </a>
     </div>
     <BannerSlider carousel={carouselImages} />
 
-    <div class='w-full py-16 bg-tortora-500'>
+    <div
+      class='w-full h-[calc(30vh-56px)] flex justify-center items-center bg-tortora-400'
+    >
       <div class='h-full flex flex-col gap-8 justify-center items-center'>
         <div
-          class='px-4 sm:px-0 text-4xl text-center font-extralight text-tortora-900'
+          class='px-4 sm:px-0 text-3xl sm:text-4xl text-center font-extralight text-tortora-900'
         >
           Welcome to Nausica Beach
         </div>
