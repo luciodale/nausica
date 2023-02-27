@@ -43,3 +43,18 @@ export function Ig() {
     </svg>
   )
 }
+
+export function Email() {
+  return (
+    <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'>
+      <path
+        d='m16.6 11-9.008.021a.5.5 0 0 0-.002 0 .5.5 0 0 0-.098-.007.5.5 0 0 0-.492.507v11.39a.5.5 0 0 0 .5.5h18.191a.5.5 0 0 0 .5-.5V11.585a.5.5 0 0 0-.492-.574L16.6 11zm0 1h.002l7.359.01-7.361 4.605-7.36-4.595L16.6 12zm8.591.418v9.992H8v-9.988l8.336 5.207a.5.5 0 0 0 .53 0l8.325-5.211z'
+        color='#000'
+        font-family='sans-serif'
+        font-weight='400'
+        overflow='visible'
+        style='line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1'
+      />
+    </svg>
+  )
+}

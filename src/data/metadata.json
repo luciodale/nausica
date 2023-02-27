@@ -1,6 +1,12 @@
 {
-  "navbar": [],
-  "footer": [],
+  "navbar": [
+    { "label": "Storia", "href": "/#story" },
+    { "label": "Servizi", "href": "/#services" }
+  ],
+  "footer": [
+    { "label": "Storia", "href": "/#story" },
+    { "label": "Servizi", "href": "/#services" }
+  ],
   "seo": {
     "home": {
       "description": "We are a unique software engineering firm, with a track record of rapidly delivering high-quality IT systems to meet challenging business objectives.",

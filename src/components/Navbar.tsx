@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import { useState } from 'preact/hooks'
 import 'preact/jsx-runtime'
 import { useOutsideClick } from '../utils'
-import DarkModeSwitch from './DarkModeSwitch'
 
 type NavLinkProp = {
   href: string
@@ -18,8 +17,8 @@ function NavLink({ label, href, target, active }: NavLinkProp) {
     <a
       {...targetProp}
       className={classNames(
-        'nav-link text-black hover:text-blue-500 transition-colors first-of-type:pt-4 md:first-of-type:pt-0',
-        active ?? 'text-blue-500'
+        'nav-link text-tortora-900 hover:text-tortora-600 transition-colors first-of-type:pt-4 md:first-of-type:pt-0',
+        active ?? 'hover:text-tortora-600'
       )}
       href={href}
     >
@@ -55,7 +54,6 @@ export default function Navbar({ navLinks }: Navbar) {
               active={page.active}
             />
           ))}
-          <DarkModeSwitch />
         </div>
       </div>
     </nav>

@@ -5,49 +5,76 @@ import slide2 from '../assets/images/foto2.jpeg'
 import slide3 from '../assets/images/foto3.jpeg'
 import slide4 from '../assets/images/foto4.jpeg'
 import slide5 from '../assets/images/foto5.jpeg'
+import vintage1 from '../assets/images/vintage1.png'
+import staff from '../assets/images/staff-nausica.png'
 
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
-import { ButtonWave } from '../components/ButtonWave'
 import { Contact } from '../components/Contact'
+import Section from '../components/Section.astro'
+import { Email, Fb, Ig } from '../components/Logos'
 import Layout from '../layouts/Layout.astro'
-import { Fb, Ig } from '../components/Logos'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
 
 const carouselImages: Carousel[] = [
   {
     src: slide1.src,
-    text: 'Il mare ha il potere di catturare la nostra immaginazione',
     alt: 'slide 1'
   },
   {
     src: slide2.src,
-    text: '',
     alt: 'slide 2'
   },
   {
     src: slide3.src,
-    text: '',
     alt: 'slide 2'
   },
   {
     src: slide4.src,
-    text: '',
     alt: 'slide 2'
   },
   {
     src: slide5.src,
-    text: 'Il mare al tramonto ispira i sogni più grandi, le speranze più profonde e le emozioni più forti',
     alt: 'slide 2'
   }
 ]
 
-const homepageBannerPicture = await getImage({
-  src: import('../assets/images/homepage-banner.jpg'),
-  width: 1700,
-  quality: 90,
-  alt: 'homepage banner'
-}).then((img) => img.src)
+const services = [
+  { title: 'Colazione', icon: '/images/services/croissant.svg' },
+  { title: 'Tavola Calda', icon: '/images/services/lunch.svg' },
+  {
+    title: 'Noleggio Attrezzatura',
+    icon: '/images/services/umbrella.svg'
+  },
+  {
+    title: 'Servizio Salvataggio',
+    icon: '/images/services/lifeguard.svg'
+  },
+  {
+    title: 'Campi Beach Volley',
+    icon: '/images/services/beachvolley.svg'
+  },
+  {
+    title: 'Noleggio SUP',
+    icon: '/images/services/sup.svg'
+  },
+  {
+    title: 'Area Giochi',
+    icon: '/images/services/games.svg'
+  },
+  {
+    title: 'Pappa Baby self service',
+    icon: '/images/services/baby.svg'
+  },
+  {
+    title: 'Aperitivo',
+    icon: '/images/services/aperitivo.svg'
+  },
+  {
+    title: 'Struttura Cardio Protetta',
+    icon: '/images/services/heart.svg'
+  }
+]
 ---
 
 <Layout title='Nausica Beach' navbar>
@@ -65,11 +92,14 @@ const homepageBannerPicture = await getImage({
       <a href='https://www.instagram.com/nausica_beach/' target='_blank'>
         <Ig />
       </a>
+      <a href='/#contact-us'>
+        <Email />
+      </a>
     </div>
     <BannerSlider carousel={carouselImages} />
 
     <div
-      class='w-full h-[calc(30vh-56px)] flex justify-center items-center bg-tortora-400'
+      class='w-full h-[calc(20vh-56px)] flex justify-center items-center bg-tortora-200'
     >
       <div class='h-full flex flex-col gap-8 justify-center items-center'>
         <div
@@ -77,11 +107,80 @@ const homepageBannerPicture = await getImage({
         >
           Welcome to Nausica Beach
         </div>
-        <div class='px-4'>
-          <ButtonWave client:only label='Contattaci' href='#contact-us' />
-        </div>
       </div>
     </div>
+
+    <Section className='py-16 bg-tortora-300 text-tortora-900'>
+      <div class='flex justify-center pb-10'>
+        <h2 id='story' class='font-bold text-lg'>Storia</h2>
+      </div>
+      <div
+        class='flex flex-col md:flex-row gap-10 justify-between items-center'
+      >
+        <div class='md:w-1/2 text-justify'>
+          <span class='font-black'>1980</span>
+          <div class='pb-10'>
+            A poco più di 30 anni e due bambine piccole decido insieme a mio
+            marito di intraprendere questa avventura. Dopo aver preso la patente
+            di guida e conseguito il diploma di licenza media per sbrigare le
+            pratiche burocratiche che mi autorizzassero a costruire un piccolo
+            chiosco. Con l'aiuto di amici abbiamo bonificato circa 5000 metri
+            quadri di arenile, senza mezzi meccanici, poichè non aveva
+            disponibilità economica per acquistarli o per pagare terzi.
+          </div>
+          <span class='font-black'>1985</span>
+          <div>
+            Finalmente ero arrivata ad avere il mio piccolo chiosco con servizi
+            30 ombrelli e... un mutuo da pagare.
+          </div>
+        </div>
+        <div class='md:w-1/2 text-justify'>
+          <img class='w-full' src={vintage1.src} alt='' />
+        </div>
+      </div>
+
+      <div
+        class='flex flex-col-reverse md:flex-row gap-10 justify-between items-center'
+      >
+        <div class='md:w-1/2'>
+          <img class='w-full' src={staff.src} alt='' />
+        </div>
+        <div class='md:w-1/2'>
+          <span class='font-black'>1995</span>
+          <div class='pb-10'>
+            Grazie all'impegno e sacrificio mio e di ogni membro della mia
+            famiglia sono riuscita a fidelizzare i clienti ed averne sempre dei
+            nuovi
+          </div>
+          <span class='font-black'>2023</span>
+          <div>
+            La realizzazione della mia impresa cosí com'è oggi, è il frutto di
+            tanti sacrifici, sia fisici che economici che la mia famiglia è
+            stata chiamata a fare, e che ancora si rendono necessari affinchè
+            nell'era della tecnologia 4.0 io possa stare al passo con i tempi.
+            Con affetto, Faraone Concetta
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <Section className='py-16 bg-tortora-200 text-tortora-900'>
+      <div class='flex justify-center pb-10'>
+        <h2 id='services' class='font-bold text-lg'>I nostri Servizi</h2>
+      </div>
+
+      <div class='flex flex-wrap place-content-center gap-10'>
+        {
+          services.map((service) => (
+            <div class='flex flex-col justify-center w-full sm:w-1/3 lg:w-1/4 items-center gap-2'>
+              <img class='w-10' src={service.icon} alt={service.title} />
+              <div class='font-mono text-sm text-center'>{service.title}</div>
+            </div>
+          ))
+        }
+      </div>
+    </Section>
+
     <Contact client:only />
   </main>
 </Layout>
