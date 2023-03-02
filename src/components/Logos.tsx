@@ -46,14 +46,24 @@ export function Ig() {
 
 export function Email() {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
       <path
-        d='m16.6 11-9.008.021a.5.5 0 0 0-.002 0 .5.5 0 0 0-.098-.007.5.5 0 0 0-.492.507v11.39a.5.5 0 0 0 .5.5h18.191a.5.5 0 0 0 .5-.5V11.585a.5.5 0 0 0-.492-.574L16.6 11zm0 1h.002l7.359.01-7.361 4.605-7.36-4.595L16.6 12zm8.591.418v9.992H8v-9.988l8.336 5.207a.5.5 0 0 0 .53 0l8.325-5.211z'
-        color='#000'
-        font-family='sans-serif'
-        font-weight='400'
-        overflow='visible'
-        style='line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1'
+        className='fill-tortora-300'
+        d='M16,31.5c-8.5,0-15.5-7-15.5-15.5S7.5,0.5,16,0.5s15.5,7,15.5,15.5S24.5,31.5,16,31.5z'
+      />
+      <path
+        className='fill-tortora-900'
+        d='M16,1c8.3,0,15,6.7,15,15s-6.7,15-15,15S1,24.3,1,16S7.7,1,16,1 M16,0C7.2,0,0,7.2,0,16c0,8.8,7.2,16,16,16s16-7.2,16-16
+	C32,7.2,24.8,0,16,0z'
+      />
+      <path
+        stroke-miterlimit='10'
+        stroke-width='0.8'
+        className='fill-tortora-900 stroke-tortora-900'
+        d='M23,9.5H9c-0.8,0-1.5,0.7-1.5,1.5v10c0,0.8,0.7,1.5,1.5,1.5h14c0.8,0,1.5-0.7,1.5-1.5V11
+	C24.5,10.2,23.8,9.5,23,9.5z M19.6,16l3.8-3.8v7.6L19.6,16z M9,10.5h14c0.2,0,0.4,0.1,0.5,0.3l-6,6c-0.8,0.8-2.1,0.8-2.9,0l-6-6
+	C8.6,10.6,8.7,10.5,9,10.5z M12.3,16l-3.8,3.8v-7.6L12.3,16z M22.9,21.4H9c-0.2,0-0.4-0.2-0.5-0.4l4.4-4.4l0.9,0.9
+	c0.6,0.6,1.3,0.9,2.1,0.9s1.5-0.3,2.1-0.9l0.9-0.9l4.5,4.5C23.3,21.3,23.2,21.4,22.9,21.4z'
       />
     </svg>
   )
