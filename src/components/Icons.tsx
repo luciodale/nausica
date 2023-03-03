@@ -68,3 +68,30 @@ export function Email() {
     </svg>
   )
 }
+
+export function Close() {
+  return (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+      <line
+        class='stroke-tortora-200'
+        x1='60.92'
+        x2='3.08'
+        y1='5.92'
+        y2='58.08'
+        fill='white'
+        stroke-miterlimit='10'
+        stroke-width='4'
+      />
+      <line
+        class='stroke-tortora-200'
+        x1='3.08'
+        x2='60.92'
+        y1='5.92'
+        y2='58.08'
+        fill='white'
+        stroke-miterlimit='10'
+        stroke-width='4'
+      />
+    </svg>
+  )
+}

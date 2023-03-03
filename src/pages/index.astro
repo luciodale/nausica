@@ -12,7 +12,7 @@ import signature from '../assets/images/signature.png'
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
 import { Contact } from '../components/Contact'
 import Section from '../components/Section.astro'
-import { Email, Fb, Ig } from '../components/Logos'
+import { Email, Fb, Ig } from '../components/Icons'
 import Layout from '../layouts/Layout.astro'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
@@ -82,7 +82,7 @@ const services = [
   <main class='relative w-full'>
     <a
       href='/'
-      class='flex items-center w-52 z-50 absolute -top-[56px] right-1/2 translate-x-1/2'
+      class='flex items-center w-52 z-40 absolute -top-[56px] right-1/2 translate-x-1/2'
     >
       <img src='/images/logo.svg' alt='Juxt Logo' />
     </a>
