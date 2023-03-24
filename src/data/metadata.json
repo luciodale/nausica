@@ -1,11 +1,13 @@
 {
   "navbar": [
     { "label": "Storia", "href": "/#story" },
-    { "label": "Servizi", "href": "/#services" }
+    { "label": "Servizi", "href": "/#services" },
+    { "label": "Eventi", "href": "/#events" }
   ],
   "footer": [
     { "label": "Storia", "href": "/#story" },
-    { "label": "Servizi", "href": "/#services" }
+    { "label": "Servizi", "href": "/#services" },
+    { "label": "Eventi", "href": "/#events" }
   ],
   "seo": {
     "home": {

@@ -12,7 +12,7 @@ import signature from '../assets/images/signature.png'
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
 import { Contact } from '../components/Contact'
 import Section from '../components/Section.astro'
-import { Email, Fb, Ig } from '../components/Icons'
+import { Email, Fb, Ig, WhatsApp } from '../components/Icons'
 import Layout from '../layouts/Layout.astro'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
@@ -96,6 +96,12 @@ const services = [
       <a href='/#contact-us'>
         <Email />
       </a>
+      <a
+        target='_blank'
+        href='https://web.whatsapp.com/send/?phone=393295891057&text&type=phone_number&app_absent=0'
+      >
+        <WhatsApp />
+      </a>
     </div>
     <BannerSlider carousel={carouselImages} />
 
@@ -113,7 +119,7 @@ const services = [
 
     <Section className='py-16 bg-tortora-300 text-tortora-900'>
       <div class='flex justify-center pb-10'>
-        <h2 id='story' class='font-bold text-lg'>Storia</h2>
+        <h2 id='story' class='text-3xl font-light'>Storia</h2>
       </div>
       <div
         class='flex flex-col md:flex-row gap-10 justify-between items-center'
@@ -172,7 +178,7 @@ const services = [
 
     <Section className='py-16 bg-tortora-200 text-tortora-900'>
       <div class='flex justify-center pb-10'>
-        <h2 id='services' class='font-bold text-lg'>I nostri Servizi</h2>
+        <h2 id='services' class='text-3xl font-light'>I Nostri Servizi</h2>
       </div>
 
       <div class='flex flex-wrap place-content-center gap-10'>
@@ -187,13 +193,60 @@ const services = [
       </div>
     </Section>
 
-    <!-- <a
-      href='https://web.whatsapp.com/send/?phone=393295891057&text&type=phone_number&app_absent=0'
-      target='_blank'
+    <Section
+      className='py-16 bg-tortora-300 text-tortora-900 flex justify-center'
     >
-      click me for whatsapp bitch</a
-    > -->
+      <div class='flex justify-center pb-6'>
+        <h2 id='events' class='text-3xl font-light'>Eventi</h2>
+      </div>
 
-    <Contact client:only />
+      <p>
+        Rimani aggiornato seguendo la nostra <a
+          href='https://www.facebook.com/lidonausicabeach'
+          target='_blank'
+          class='font-bold'>pagina Facebook</a
+        >
+      </p>
+    </Section>
   </main>
+
+  <Contact client:only />
 </Layout>
+
+<script is:inline>
+  setTimeout(() => {
+    // create a modal with a backdrop and a close button
+    // inside the modal there's a picture and some text side by side and a title
+
+    const modal = document.createElement('div')
+    modal.className =
+      'fixed top-0 left-0 z-50 w-full h-full flex justify-center items-center bg-black bg-opacity-50'
+
+    modal.innerHTML = `
+  <div class="relative w-4/5 max-h-[90vh] xl:w-1/2 text-black flex bg-white shadow-xl">
+    <img class="w-1/2 hidden lg:block object-cover" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80">
+    <p class="text-center bg-tortora-500 flex flex-col gap-10 p-8 text-xl justify-center items-center">
+      <span>
+        Sapevi che stai guardando il nostro sito per lo stesso tempo che impiega un buon caffè espresso ad essere fatto? 
+        </span>
+        <span>
+          25-30 secondi sono sufficienti per preparare e gustare un caffè espresso perfetto, fatto al momento con 7 grammi di caffè macinato sottile e pressato. 
+        </span>
+        <span>
+          Cosa aspetti? Vieni a trovarci e concediti un puro concentrato di piacere gustativo.
+        </span>
+
+        <span>
+          Ti aspettiamo!
+          </span>
+    </p>
+  </div>
+`
+
+    modal.addEventListener('click', () => {
+      modal.remove()
+    })
+
+    document.body.appendChild(modal)
+  }, 0)
+</script>
