@@ -3,15 +3,13 @@
     { "label": "Storia", "href": "/#story" },
     { "label": "Servizi", "href": "/#services" },
     { "label": "Eventi", "href": "/#events" },
-    { "label": "Contattaci", "href": "/#contact-us" },
-    { "label": "Come Raggiungerci", "href": "/#reach-us" }
+    { "label": "Contattaci", "href": "/#contact-us" }
   ],
   "footer": [
     { "label": "Storia", "href": "/#story" },
     { "label": "Servizi", "href": "/#services" },
     { "label": "Eventi", "href": "/#events" },
-    { "label": "Contattaci", "href": "/#contact-us" },
-    { "label": "Come Raggiungerci", "href": "/#reach-us" }
+    { "label": "Contattaci", "href": "/#contact-us" }
   ],
   "seo": {
     "home": {
