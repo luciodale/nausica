@@ -14,6 +14,7 @@ import { Contact } from '../components/Contact'
 import Section from '../components/Section.astro'
 import { Email, Fb, Ig, WhatsApp } from '../components/Icons'
 import Layout from '../layouts/Layout.astro'
+import LeafletMap from '../components/LeafletMap.astro'
 
 const siteMetadata = await Astro.glob('../data/metadata.json')
 
@@ -208,9 +209,17 @@ const services = [
         >
       </p>
     </Section>
-  </main>
+    <Contact client:only />
+    <div
+      class='py-16 bg-tortora-300 text-tortora-900 flex justify-center flex-col'
+    >
+      <div class='flex justify-center pb-10'>
+        <h2 id='events' class='text-3xl font-light'>Come Raggiungerci</h2>
+      </div>
 
-  <Contact client:only />
+      <LeafletMap />
+    </div>
+  </main>
 </Layout>
 
 <script is:inline>

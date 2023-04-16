@@ -1,0 +1,40 @@
+---
+---
+
+<link
+  rel='stylesheet'
+  href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css'
+  integrity='sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI='
+  crossorigin=''
+/>
+<script
+  is:inline
+  src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js'
+  integrity='sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM='
+  crossorigin=''
+></script>
+
+<div class='flex justify-center w-screen'>
+  <div class='w-full h-[400px] z-0' id='map'></div>
+</div>
+<script is:inline>
+  const latLon = [42.4380626, 14.2608165]
+  const map = L.map('map', {
+    attributionControl: false
+  }).setView(latLon, 14)
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map)
+
+  const marker = L.marker(latLon).addTo(map)
+  const googleMapsLink =
+    'https://www.google.com/maps/dir//Nausica+Beach,+Via+delle+Nereidi,+s%2Fn,+66023+Francavilla+al+Mare+CH/@42.4380626,14.2608165,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x1331a7e09a8c0e05:0x90b1ba7e11bf4f5a!2m2!1d14.2633914!2d42.4380587!3e0'
+  marker
+    .bindPopup(
+      `<a href=${googleMapsLink} target='_blank' class='cursor-pointer'> <span class='font-bold text-black'> Nausica Beach </span> </br>  <span class='underline'> Vai alla destinazione </span> </a>`
+    )
+    .openPopup()
+</script>
