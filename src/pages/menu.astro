@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-type MenuItem = { nome: string; ingredienti: string; prezzo: number }
+type MenuItem = { nome: string; ingredienti?: string; prezzo: number }
 type MenuSection = { nome: string; pietanze: MenuItem[] }
 type Menu = {
   sinistra: MenuSection[]
@@ -41,7 +41,9 @@ const menu = [sinistra, destra]
                           <li class='flex justify-between items-end gap-8'>
                             <div>
                               <h3 class='text-tortora-700 uppercase'>{nome}</h3>
-                              <p class='text-sm italic'>{ingredienti}</p>
+                              {ingredienti && (
+                                <p class='text-sm italic'>{ingredienti}</p>
+                              )}
                             </div>
                             <p class='font-extralight text-xl'>{prezzo}</p>
                           </li>
