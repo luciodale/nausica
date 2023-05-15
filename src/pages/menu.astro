@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+type MenuItem = { nome: string; ingredienti: string; prezzo: number }
+type MenuSection = { nome: string; pietanze: MenuItem[] }
+type Menu = {
+  sinistra: MenuSection[]
+  destra: MenuSection[]
+}
+
+const siteMetadata = await Astro.glob<Menu>('../data/menu.json')
+
+const { sinistra, destra } = siteMetadata[0]
+const menu = [sinistra, destra]
+---
+
+<Layout title='Nausica Beach' navbar>
+  <main class='bg-tortora-100 text-tortora-900 sm:px-12 px-4'>
+    <div
+      class='text-2xl flex font-light justify-center py-20 italic tracking-widest'
+    >
+      Aperitivo time 17:30 / 20:00
+    </div>
+
+    <div
+      class='relative w-full flex flex-col lg:flex-row justify-center gap-10 lg:gap-20 pb-20'
+    >
+      {
+        menu.map((side) => {
+          return (
+            <div class='lg:first-of-type:border-r-2 border-tortora-200 lg:first-of-type:pr-20 flex flex-col gap-10 justify-between'>
+              {side.map(({ nome, pietanze }) => {
+                return (
+                  <div class='flex flex-col gap-2'>
+                    <h2 class='font-light text-2xl capitalize text-tortora-900'>
+                      {nome}
+                    </h2>
+                    <ul class='flex flex-col gap-4'>
+                      {pietanze.map(({ nome, ingredienti, prezzo }) => {
+                        return (
+                          <li class='flex justify-between items-end gap-8'>
+                            <div>
+                              <h3 class='text-tortora-700 uppercase'>{nome}</h3>
+                              <p class='text-sm italic'>{ingredienti}</p>
+                            </div>
+                            <p class='font-extralight text-xl'>{prezzo}</p>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+          )
+        })
+      }
+    </div>
+  </main>
+</Layout>

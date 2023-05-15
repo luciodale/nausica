@@ -1,22 +1,19 @@
 ---
-import { getImage } from '@astrojs/image'
-import slide1 from '../assets/images/foto1.jpeg'
-import slide2 from '../assets/images/foto2.jpeg'
-import slide3 from '../assets/images/foto3.jpeg'
-import slide4 from '../assets/images/foto4.jpeg'
-import slide5 from '../assets/images/foto5.jpeg'
 import concetta from '../assets/images/concetta.png'
-import staff from '../assets/images/staff-nausica.png'
+import slide1 from '../assets/images/foto1.jpg'
+import slide2 from '../assets/images/foto2.jpg'
+import slide3 from '../assets/images/foto3.jpg'
+import slide4 from '../assets/images/foto4.jpg'
+import slide5 from '../assets/images/foto5.jpg'
 import signature from '../assets/images/signature.png'
+import staff from '../assets/images/staff-nausica.png'
 
 import BannerSlider, { Carousel } from '../components/BannerSlider.astro'
 import { Contact } from '../components/Contact'
-import Section from '../components/Section.astro'
 import { Email, Fb, Ig, WhatsApp } from '../components/Icons'
-import Layout from '../layouts/Layout.astro'
 import LeafletMap from '../components/LeafletMap.astro'
-
-const siteMetadata = await Astro.glob('../data/metadata.json')
+import Section from '../components/Section.astro'
+import Layout from '../layouts/Layout.astro'
 
 const carouselImages: Carousel[] = [
   {
@@ -232,7 +229,7 @@ const services = [
       'fixed top-0 left-0 z-50 w-full h-full flex justify-center items-center bg-black bg-opacity-50'
 
     modal.innerHTML = `
-  <div class="relative w-4/5 max-h-[90vh] bg-tortora-500 overflow-scroll xl:w-1/2 text-black flex shadow-xl">
+  <div class="relative w-4/5 max-h-[90vh] bg-tortora-500 overflow-auto xl:w-1/2 text-black flex shadow-xl">
     <img class="w-1/2 hidden lg:block object-cover" src='images/coffee.jpeg'>
     <p class="text-center flex flex-col gap-10 p-8 text-xl lg:justify-center items-center">
       <span>

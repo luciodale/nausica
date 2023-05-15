@@ -1,0 +1,135 @@
+{
+  "sinistra": [
+    {
+      "nome": "pinsa",
+      "pietanze": [
+        {
+          "nome": "vegetariana",
+          "ingredienti": "mozzarella, zucchina, melanzana, peperoni, stracchino",
+          "prezzo": 21
+        },
+        {
+          "nome": "mortazza",
+          "ingredienti": "mortadella, mozzarella, pistacchio",
+          "prezzo": 21
+        },
+        {
+          "nome": "crudo",
+          "ingredienti": "prosciutto crudo, mozzarella",
+          "prezzo": 21
+        },
+        {
+          "nome": "baccalà",
+          "ingredienti": "baccalà, salsa verde, peperone crusco",
+          "prezzo": 21
+        },
+        {
+          "nome": "code di gambero",
+          "ingredienti": "mozzancolle, peperoni, mozzarella",
+          "prezzo": 21
+        },
+        {
+          "nome": "alici",
+          "ingredienti": "stracciata, alici, pomodorini",
+          "prezzo": 21
+        },
+        {
+          "nome": "gambero rosso",
+          "ingredienti": "gambero rosso, crema di burrata, valeriana",
+          "prezzo": 16
+        }
+      ]
+    },
+    {
+      "nome": "pizza",
+      "pietanze": [
+        {
+          "nome": "margherita",
+          "ingredienti": "mozzarella, pomodoro",
+          "prezzo": 15
+        },
+        {
+          "nome": "alici",
+          "ingredienti": "alici, aglio, prezzemolo",
+          "prezzo": 16
+        },
+        {
+          "nome": "cotto",
+          "ingredienti": "prosciutto cotto, mozzarella",
+          "prezzo": 14
+        }
+      ]
+    }
+  ],
+  "destra": [
+    {
+      "nome": "piadina",
+      "pietanze": [
+        {
+          "nome": "vegetariana",
+          "ingredienti": "mozzarella, zucchina, melanzana, peperoni, stracchino",
+          "prezzo": 15
+        },
+        {
+          "nome": "crudo",
+          "ingredienti": "crudo, stracchino, rucola",
+          "prezzo": 15
+        },
+        {
+          "nome": "cotto",
+          "ingredienti": "cotto, stracchino, rucola",
+          "prezzo": 18
+        }
+      ]
+    },
+    {
+      "nome": "tagliere",
+      "pietanze": [
+        {
+          "nome": "tagliere salumi e formaggi",
+          "ingredienti": "mix salumi e formaggi freschi e stagionati",
+          "prezzo": 22
+        }
+      ]
+    },
+    {
+      "nome": "mini hamburger",
+      "pietanze": [
+        {
+          "nome": "3 mini hamburger",
+          "ingredienti": "hamburger, pomodoro, rucola, salsa",
+          "prezzo": 22
+        }
+      ]
+    },
+    {
+      "nome": "stuzzico",
+      "pietanze": [
+        {
+          "nome": "sgranocchio",
+          "ingredienti": "olive verdi, tarallucci, riso piccante",
+          "prezzo": 22
+        },
+        {
+          "nome": "porzione singola",
+          "ingredienti": "olive verdi, tarallucci, riso piccante",
+          "prezzo": 22
+        },
+        {
+          "nome": "nocelle",
+          "ingredienti": "olive verdi, tarallucci, riso piccante",
+          "prezzo": 14
+        }
+      ]
+    },
+    {
+      "nome": "dolcezze",
+      "pietanze": [
+        {
+          "nome": "pinsa con nutella",
+          "prezzo": 22
+        }
+      ]
+    }
+  ]
+}
