@@ -2,14 +2,26 @@
   "navbar": [
     { "label": "Storia", "href": "/#story" },
     { "label": "Servizi", "href": "/#services" },
+    { "label": "Menu", "href": "/#menu" },
     { "label": "Eventi", "href": "/#events" },
-    { "label": "Contattaci", "href": "/#contact-us" }
+    { "label": "Riconoscimenti", "href": "/#riconoscimenti" },
+    { "label": "Contattaci", "href": "/#contact-us" },
+    {
+      "label": "Prenota Spiaggia",
+      "href": "https://www.beachnow.it/?structure=nausica-beach"
+    }
   ],
   "footer": [
     { "label": "Storia", "href": "/#story" },
     { "label": "Servizi", "href": "/#services" },
+    { "label": "Menu", "href": "/#menu" },
     { "label": "Eventi", "href": "/#events" },
-    { "label": "Contattaci", "href": "/#contact-us" }
+    { "label": "Riconoscimenti", "href": "/#riconoscimenti" },
+    { "label": "Contattaci", "href": "/#contact-us" },
+    {
+      "label": "Prenota Spiaggia",
+      "href": "https://www.beachnow.it/?structure=nausica-beach"
+    }
   ],
   "seo": {
     "home": {

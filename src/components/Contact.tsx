@@ -3,7 +3,7 @@ import { useState } from 'preact/hooks'
 import { Loader } from './Loader'
 
 const inputClass =
-  'p-3 text-black rounded-lg bg-transparent border border-tortora-600 focus:border-tortora-900 focus:outline-double focus:outline-tortora-900'
+  'p-3 text-black rounded-lg bg-transparent placeholder-tortora-800 border border-tortora-600 focus:border-tortora-900 focus:outline-double focus:outline-tortora-900'
 
 export function Contact() {
   const [formState, setFormState] = useState<
@@ -71,7 +71,7 @@ export function Contact() {
 
   return (
     <>
-      <div className='bg-tortora-200 py-10 px-4 sm:px-0 flex justify-center'>
+      <div className='bg-tortora-300 py-10 px-4 sm:px-0 flex justify-center'>
         <div className='w-full sm:w-[500px]'>
           <div
             id='contact-us'

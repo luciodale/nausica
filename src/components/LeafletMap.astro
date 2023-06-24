@@ -20,11 +20,16 @@
 <script is:inline>
   const latLon = [42.4380626, 14.2608165]
   const map = L.map('map', {
-    attributionControl: false
+    attributionControl: false,
+    zoomControl: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    touchZoom: false,
+    boxZoom: false,
+    keyboard: false
   }).setView(latLon, 14)
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map)

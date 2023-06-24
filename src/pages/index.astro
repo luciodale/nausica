@@ -82,7 +82,7 @@ const services = [
       href='/'
       class='flex items-center w-52 z-40 absolute -top-[56px] right-1/2 translate-x-1/2'
     >
-      <img src='/images/logo.svg' alt='Juxt Logo' />
+      <img src='/images/logo.svg' alt='Nausica Beach Logo' />
     </a>
     <div class='fixed top-20 left-0 z-10 flex flex-col gap-2 p-2 rounded-r-lg'>
       <a href='https://www.facebook.com/lidonausicabeach' target='_blank'>
@@ -189,6 +189,35 @@ const services = [
           ))
         }
       </div>
+
+      <!-- aggiungi una sezione per il menu con link e una serie di foto del menu -->
+      <div>
+        <div class='flex justify-center pb-10 pt-16'>
+          <h2 id='menu' class='text-3xl font-light'>Menu</h2>
+        </div>
+
+        <a
+          href='/menu.pdf'
+          target='_blank'
+          class='flex place-content-center pb-16 underline'
+        >
+          Visiona il menu completo qui
+        </a>
+
+        <div class='grid sm:grid-cols-2 gap-10 grid-cols-1'>
+          {
+            [1, 2, 3, 4].map((num) => (
+              <div class='flex flex-col justify-center items-center gap-2'>
+                <img
+                  class='w-full'
+                  src={`/images/food${num}.jpg`}
+                  alt='food image'
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </Section>
 
     <Section
@@ -206,9 +235,33 @@ const services = [
         >
       </p>
     </Section>
+    <Section
+      className='py-16 bg-tortora-200 text-tortora-900 flex justify-center'
+    >
+      <div class='flex justify-center pb-6'>
+        <h2 id='riconoscimenti' class='text-3xl font-light'>Riconoscimenti</h2>
+      </div>
+
+      <div class='flex justify-center items-center'>
+        Siamo onorati di aver ricevuto importanti riconoscimenti che attestano
+        il nostro impegno e la qualità dei nostri servizi.
+      </div>
+      <div class='flex flex-col gap-4 md:flex-row py-16'>
+        <img
+          class='md:w-1/2 aspect-video object-cover'
+          src='/images/aknowledgments.jpg'
+          alt=''
+        />
+        <img
+          class='md:w-1/2 aspect-video object-cover'
+          src='/images/blue-flag.jpg'
+          alt=''
+        />
+      </div>
+    </Section>
     <Contact client:only />
     <div
-      class='py-16 bg-tortora-300 text-tortora-900 flex justify-center flex-col'
+      class='pt-16 bg-tortora-200 text-tortora-900 flex justify-center flex-col'
     >
       <div class='flex justify-center pb-10'>
         <h2 id='reach-us' class='text-3xl font-light'>Come Raggiungerci</h2>
