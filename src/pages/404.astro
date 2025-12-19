@@ -1,6 +1,5 @@
 ---
 import { getImage } from '@astrojs/image'
-import Banner from '../components/Banner.astro'
 import Layout from '../layouts/Layout.astro'
 
 const picture404 = await getImage({
@@ -11,13 +10,39 @@ const picture404 = await getImage({
 }).then((img) => img.src)
 ---
 
-<Layout navbar title='Page not found'>
-  <main>
-    <Banner
-      text='404'
-      style={{
-        backgroundImage: `url(${picture404})`
-      }}
-    />
+<Layout navbar title='Pagina non trovata'>
+  <main class='min-h-screen bg-sand-50'>
+    <!-- 404 Hero -->
+    <section 
+      class='relative h-[70vh] bg-cover bg-center overflow-hidden'
+      style={`background-image: url(${picture404})`}
+    >
+      <div class='absolute inset-0 bg-ink-900/60' />
+      <div class='relative h-full container-wide flex flex-col justify-center items-center text-center'>
+        <span class='text-ocean-400 text-sm font-medium tracking-widest uppercase mb-4'>
+          Errore 404
+        </span>
+        <h1 class='text-white justify-center'>
+          Pagina non trovata
+        </h1>
+        <div class='w-16 h-px bg-white/40 my-8' />
+        <p class='text-sand-200 text-lg max-w-md'>
+          La pagina che stai cercando non esiste o è stata spostata.
+        </p>
+        <a 
+          href='/' 
+          class='mt-10 inline-flex items-center gap-2 px-8 py-4
+                 text-sm tracking-wider uppercase text-white
+                 border border-white/50 
+                 hover:bg-white hover:text-ink-900
+                 transition-all duration-300'
+        >
+          <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='1.5'>
+            <path stroke-linecap='round' stroke-linejoin='round' d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18' />
+          </svg>
+          Torna alla home
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>

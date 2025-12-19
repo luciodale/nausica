@@ -1,0 +1,78 @@
+---
+type Props = {
+  src: string
+  alt: string
+}
+
+const { src, alt } = Astro.props
+---
+
+<section class='relative h-[85vh] min-h-[600px] overflow-hidden'>
+  <!-- Hero Image -->
+  <img
+    src={src}
+    alt={alt}
+    class='absolute inset-0 w-full h-full object-cover'
+  />
+
+  <!-- Gradient overlay - stronger for text readability -->
+  <div
+    class='absolute inset-0 bg-gradient-to-b from-ink-900/40 via-ink-900/20 to-ink-900/60'
+  >
+  </div>
+
+  <!-- Hero Content -->
+  <div class='absolute inset-0 flex items-center justify-center'>
+    <div class='text-center text-white px-6 w-full'>
+      <p
+        class='text-sm md:text-base tracking-[0.3em] uppercase text-sand-200 mb-4 animate-fade-in-down drop-shadow-md'
+      >
+        Dal 1980
+      </p>
+      <h1
+        class='text-4xl flex justify-center md:text-7xl lg:text-8xl font-display font-light text-white animate-fade-in stagger-1'
+        style='text-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3);'
+      >
+        Nausica Beach
+      </h1>
+      <div class='w-24 h-px bg-white/50 mx-auto my-8 animate-fade-in stagger-2'>
+      </div>
+      <p
+        class='text-lg md:text-xl font-light text-sand-100 max-w-lg mx-auto animate-fade-in stagger-3 drop-shadow-md'
+      >
+        Un angolo di paradiso sulla costa adriatica
+      </p>
+
+      <a
+        href='/#story'
+        class='inline-flex items-center gap-2 mt-10 px-8 py-4 text-sm tracking-wider uppercase text-white border border-white/50 hover:bg-white hover:text-ink-900 transition-all duration-300 animate-fade-in stagger-4 shadow-lg'
+      >
+        Scopri di più
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='1.5'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class='absolute bottom-8 left-8 hidden md:flex flex-col items-center gap-2 text-white/70'
+  >
+    <span
+      class='text-xs tracking-widest uppercase rotate-90 origin-bottom-left translate-x-3'
+    >
+      Scroll
+    </span>
+  </div>
+</section>

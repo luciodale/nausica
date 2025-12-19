@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import { useState } from 'preact/hooks'
 import 'preact/jsx-runtime'
 import { useOutsideClick } from '../utils'
-import { Close } from './Icons'
 
 type NavLinkProp = {
   href: string
@@ -20,8 +19,10 @@ function NavLink({ label, href, target, active, onClick }: NavLinkProp) {
       {...targetProp}
       onClick={onClick}
       className={classNames(
-        'md:text-tortora-900 md:hover:text-tortora-600 transition-colors text-tortora-200 hover:text-tortora-500',
-        active ?? 'hover:text-tortora-600'
+        'relative py-1 text-sm tracking-wide transition-colors duration-300',
+        'after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-ocean-500 after:transition-all after:duration-300',
+        'hover:text-ocean-600 hover:after:w-full',
+        active ? 'text-ocean-600 after:w-full' : 'text-ink-700'
       )}
       href={href}
     >
@@ -40,37 +41,27 @@ export default function Navbar({ navLinks }: Navbar) {
     <>
       <nav
         className={classNames(
-          'w-full fixed transition-all bg-tortora-200 z-30 h-14'
+          'fixed top-0 left-0 right-0 z-50',
+          'bg-sand-50/95 backdrop-blur-sm',
+          'border-b border-sand-200',
+          'transition-all duration-300'
         )}
       >
-        <div className='transition-all text-black container mx-auto px-4 sm:px-12 2xl:px-0 max-w-7xl flex flex-wrap items-center justify-end h-full'>
-          <button
-            data-collapse-toggle='navbar-default'
-            type='button'
-            className='z-10 inline-flex items-center p-2 ml-3 text-sm text-tortora-200 rounded-lg md:hidden hover:bg-tortora-400 focus:outline-none focus:ring-2 focus:ring-tortora-900'
-            aria-controls='navbar-default'
-            aria-expanded='false'
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className='sr-only'>Open main menu</span>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              class='w-6 h-6m stroke-tortora-900'
-              fill='none'
-              viewBox='0 0 24 24'
-            >
-              <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
-                d='M4 6h16M4 12h16m-7 6h7'
-              ></path>
-            </svg>
-          </button>
-          {/* desktop */}
-          <div className='hidden md:flex gap-8 uppercase tracking-widest text-xs'>
+        <div className='container-wide h-16 flex items-center justify-between'>
+          {/* Logo */}
+          <a href='/' className='flex items-center'>
+            <img 
+              src='/images/logo.svg' 
+              alt='Nausica Beach' 
+              className='h-10 w-auto'
+            />
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className='hidden md:flex items-center gap-10'>
             {navLinks.map((page) => (
               <NavLink
+                key={page.href}
                 href={page.href}
                 label={page.label}
                 target={page.target}
@@ -78,34 +69,88 @@ export default function Navbar({ navLinks }: Navbar) {
               />
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            type='button'
+            className='md:hidden p-2 text-ink-600 hover:text-ink-900 transition-colors'
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label='Toggle menu'
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='w-6 h-6'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              strokeWidth={1.5}
+            >
+              {isMenuOpen ? (
+                <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
+              ) : (
+                <path strokeLinecap='round' strokeLinejoin='round' d='M4 6h16M4 12h16m-7 6h7' />
+              )}
+            </svg>
+          </button>
         </div>
       </nav>
-      {/* mobile */}
-      <nav ref={ref}>
-        <div
-          className={classNames(
-            'fixed top-0 h-full p-4 flex z-50 bg-tortora-900 w-1/2 flex-col gap-10 items-center md:hidden overflow-hidden transition-all',
-            {
-              '-right-full': !isMenuOpen,
-              'right-0 pb-4': isMenuOpen
-            }
-          )}
-        >
-          <div
-            className='w-8 cursor-pointer'
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Close />
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={classNames(
+          'fixed inset-0 z-40 bg-ink-900/50 backdrop-blur-sm md:hidden',
+          'transition-opacity duration-300',
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        )}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Panel */}
+      <nav
+        ref={ref}
+        className={classNames(
+          'fixed top-0 right-0 z-50 h-full w-72 md:hidden',
+          'bg-sand-50 border-l border-sand-200',
+          'transition-transform duration-300 ease-elegant',
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        )}
+      >
+        <div className='flex flex-col h-full'>
+          {/* Close button */}
+          <div className='flex justify-end p-4'>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className='p-2 text-ink-500 hover:text-ink-800 transition-colors'
+              aria-label='Close menu'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='w-6 h-6'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                strokeWidth={1.5}
+              >
+                <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
+              </svg>
+            </button>
           </div>
-          <div class='flex flex-col justify-center items-center uppercase tracking-widest text-sm gap-6'>
+
+          {/* Mobile Links */}
+          <div className='flex flex-col gap-1 px-6'>
             {navLinks.map((page) => (
-              <NavLink
+              <a
+                key={page.href}
                 href={page.href}
-                label={page.label}
-                target={page.target}
                 onClick={() => setIsMenuOpen(false)}
-                active={page.active}
-              />
+                className={classNames(
+                  'py-4 text-lg font-display font-light text-ink-700',
+                  'border-b border-sand-200',
+                  'hover:text-ocean-600 transition-colors duration-300'
+                )}
+              >
+                {page.label}
+              </a>
             ))}
           </div>
         </div>

@@ -1,123 +1,106 @@
-export function Fb() {
+type IconProps = {
+  className?: string
+  size?: 'sm' | 'md' | 'lg'
+}
+
+const sizeClasses = {
+  sm: 'w-8 h-8',
+  md: 'w-10 h-10', 
+  lg: 'w-12 h-12'
+}
+
+export function Fb({ className = '', size = 'md' }: IconProps) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 32 32'
-      className='w-10'
+    <div className={`${sizeClasses[size]} rounded-full border border-sand-400 flex items-center justify-center
+                    text-ink-600 hover:text-white hover:border-ocean-500 hover:bg-ocean-500
+                    transition-all duration-300 ${className}`}>
+      <svg xmlns='http://www.w3.org/2000/svg' className='w-4 h-4' fill='currentColor' viewBox='0 0 24 24'>
+        <path d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'/>
+      </svg>
+    </div>
+  )
+}
+
+export function Ig({ className = '', size = 'md' }: IconProps) {
+  return (
+    <div className={`${sizeClasses[size]} rounded-full border border-sand-400 flex items-center justify-center
+                    text-ink-600 hover:text-white hover:border-ocean-500 hover:bg-ocean-500
+                    transition-all duration-300 ${className}`}>
+      <svg xmlns='http://www.w3.org/2000/svg' className='w-4 h-4' fill='currentColor' viewBox='0 0 24 24'>
+        <path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/>
+      </svg>
+    </div>
+  )
+}
+
+export function Email({ className = '', size = 'md' }: IconProps) {
+  return (
+    <div className={`${sizeClasses[size]} rounded-full border border-sand-400 flex items-center justify-center
+                    text-ink-600 hover:text-white hover:border-ocean-500 hover:bg-ocean-500
+                    transition-all duration-300 ${className}`}>
+      <svg xmlns='http://www.w3.org/2000/svg' className='w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={1.5}>
+        <path strokeLinecap='round' strokeLinejoin='round' d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75' />
+      </svg>
+    </div>
+  )
+}
+
+export function Close({ className = '' }: { className?: string }) {
+  return (
+    <svg 
+      xmlns='http://www.w3.org/2000/svg' 
+      className={`w-6 h-6 ${className}`}
+      fill='none'
+      viewBox='0 0 24 24' 
+      stroke='currentColor'
+      strokeWidth={1.5}
     >
-      <path
-        className='fill-tortora-300'
-        d='M16 31.5C7.453 31.5.5 24.547.5 16S7.453.5 16 .5 31.5 7.453 31.5 16 24.547 31.5 16 31.5z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M16 1c8.271 0 15 6.729 15 15s-6.729 15-15 15S1 24.271 1 16 7.729 1 16 1m0-1C7.163 0 0 7.163 0 16c0 8.836 7.163 16 16 16s16-7.164 16-16c0-8.837-7.163-16-16-16z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M13.69 24.903h3.679v-8.904h2.454l.325-3.068h-2.779l.004-1.536c0-.8.076-1.229 1.224-1.229h1.534V7.097h-2.455c-2.949 0-3.986 1.489-3.986 3.992v1.842h-1.838V16h1.838v8.903z'
-      />
+      <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
     </svg>
   )
 }
 
-export function Ig() {
+export function WhatsApp({ className = '', size = 'md' }: IconProps) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 32 32'
-      className='w-10'
+    <div className={`${sizeClasses[size]} rounded-full border border-sand-400 flex items-center justify-center
+                    text-ink-600 hover:text-white hover:border-ocean-500 hover:bg-ocean-500
+                    transition-all duration-300 ${className}`}>
+      <svg xmlns='http://www.w3.org/2000/svg' className='w-4 h-4' fill='currentColor' viewBox='0 0 24 24'>
+        <path d='M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z'/>
+      </svg>
+    </div>
+  )
+}
+
+// Arrow icon for links and buttons
+export function ArrowRight({ className = '' }: { className?: string }) {
+  return (
+    <svg 
+      xmlns='http://www.w3.org/2000/svg' 
+      className={`w-4 h-4 ${className}`}
+      fill='none'
+      viewBox='0 0 24 24' 
+      stroke='currentColor'
+      strokeWidth={1.5}
     >
-      <path
-        className='fill-tortora-300'
-        d='M16 31.5C7.453 31.5.5 24.547.5 16S7.453.5 16 .5 31.5 7.453 31.5 16 24.547 31.5 16 31.5z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M16 1c8.271 0 15 6.729 15 15s-6.729 15-15 15S1 24.271 1 16 7.729 1 16 1m0-1C7.163 0 0 7.163 0 16c0 8.836 7.163 16 16 16s16-7.164 16-16c0-8.837-7.163-16-16-16z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M22.057 7.93H9.943c-1.14 0-2.019.879-2.019 2.019v12.113c0 1.14.879 2.019 2.019 2.019h12.113c1.14 0 2.019-.879 2.019-2.019V9.949a1.986 1.986 0 0 0-2.018-2.019zm-6.045 4.903c1.791 0 3.243 1.407 3.243 3.142 0 1.735-1.452 3.142-3.243 3.142-1.79 0-3.242-1.408-3.242-3.142 0-1.736 1.452-3.142 3.242-3.142zm6.045 8.724c0 .354-.151.505-.505.505H10.448c-.353 0-.505-.151-.505-.505v-7.066l1.258.274a4.7 4.7 0 0 0-.208 1.385c0 2.684 2.248 4.863 5.018 4.863 2.772 0 5.019-2.178 5.019-4.863a4.7 4.7 0 0 0-.208-1.385l1.234-.274v7.066zm0-9.085a.505.505 0 0 1-.505.505h-2.019a.505.505 0 0 1-.505-.505v-2.019c0-.279.226-.505.505-.505h2.019c.279 0 .505.226.505.505v2.019z'
-      />
+      <path strokeLinecap='round' strokeLinejoin='round' d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3' />
     </svg>
   )
 }
 
-export function Email() {
+// Location pin icon
+export function MapPin({ className = '' }: { className?: string }) {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
-      <path
-        className='fill-tortora-300'
-        d='M16,31.5c-8.5,0-15.5-7-15.5-15.5S7.5,0.5,16,0.5s15.5,7,15.5,15.5S24.5,31.5,16,31.5z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M16,1c8.3,0,15,6.7,15,15s-6.7,15-15,15S1,24.3,1,16S7.7,1,16,1 M16,0C7.2,0,0,7.2,0,16c0,8.8,7.2,16,16,16s16-7.2,16-16
-	C32,7.2,24.8,0,16,0z'
-      />
-      <path
-        stroke-miterlimit='10'
-        stroke-width='0.8'
-        className='fill-tortora-900 stroke-tortora-900'
-        d='M23,9.5H9c-0.8,0-1.5,0.7-1.5,1.5v10c0,0.8,0.7,1.5,1.5,1.5h14c0.8,0,1.5-0.7,1.5-1.5V11
-	C24.5,10.2,23.8,9.5,23,9.5z M19.6,16l3.8-3.8v7.6L19.6,16z M9,10.5h14c0.2,0,0.4,0.1,0.5,0.3l-6,6c-0.8,0.8-2.1,0.8-2.9,0l-6-6
-	C8.6,10.6,8.7,10.5,9,10.5z M12.3,16l-3.8,3.8v-7.6L12.3,16z M22.9,21.4H9c-0.2,0-0.4-0.2-0.5-0.4l4.4-4.4l0.9,0.9
-	c0.6,0.6,1.3,0.9,2.1,0.9s1.5-0.3,2.1-0.9l0.9-0.9l4.5,4.5C23.3,21.3,23.2,21.4,22.9,21.4z'
-      />
-    </svg>
-  )
-}
-
-export function Close() {
-  return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
-      <line
-        class='stroke-tortora-200'
-        x1='60.92'
-        x2='3.08'
-        y1='5.92'
-        y2='58.08'
-        fill='white'
-        stroke-miterlimit='10'
-        stroke-width='4'
-      />
-      <line
-        class='stroke-tortora-200'
-        x1='3.08'
-        x2='60.92'
-        y1='5.92'
-        y2='58.08'
-        fill='white'
-        stroke-miterlimit='10'
-        stroke-width='4'
-      />
-    </svg>
-  )
-}
-
-export function WhatsApp() {
-  return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
-      <path
-        className='fill-tortora-300'
-        d='M16,31.5c-8.5,0-15.5-7-15.5-15.5S7.5,0.5,16,0.5s15.5,7,15.5,15.5S24.5,31.5,16,31.5z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M16,1c8.3,0,15,6.7,15,15s-6.7,15-15,15S1,24.3,1,16S7.7,1,16,1 M16,0C7.2,0,0,7.2,0,16s7.2,16,16,16s16-7.2,16-16
-    S24.8,0,16,0z'
-      />
-      <path
-        className='fill-tortora-900'
-        d='M19.9,17.7c-0.2-0.1-1.2-0.6-1.4-0.7c-0.2-0.1-0.3-0.1-0.5,0.1s-0.5,0.7-0.7,0.8c-0.1,0.2-0.2,0.2-0.4,0.1
-    c-0.6-0.2-1.2-0.6-1.7-1c-0.4-0.4-0.8-0.9-1.2-1.4c-0.1-0.2,0-0.3,0.1-0.4c0.1-0.1,0.2-0.2,0.3-0.3c0.1-0.1,0.2-0.2,0.2-0.3
-    c0.1-0.1,0.1-0.2,0-0.3c-0.1-0.1-0.5-1.1-0.7-1.5c-0.1-0.6-0.2-0.6-0.4-0.6h-0.4c-0.2,0-0.4,0.2-0.5,0.2c-0.5,0.5-0.7,1.1-0.7,1.7
-    c0.1,0.7,0.3,1.5,0.8,2.2c0.9,1.3,2.1,2.4,3.5,3.1c0.4,0.2,0.7,0.3,1.2,0.4c0.4,0.2,0.8,0.2,1.3,0.1c0.6-0.1,1.1-0.5,1.4-1
-    c0.2-0.3,0.2-0.7,0.1-1L19.9,17.7 M21.9,10.1c-3.2-3.2-8.5-3.2-11.7,0c-2.7,2.7-3.2,6.7-1.3,10l-1.2,4.2l4.4-1.2
-    c1.2,0.7,2.6,1,3.9,1c4.6,0,8.2-3.6,8.2-8.2C24.3,13.8,23.4,11.7,21.9,10.1 M19.7,21.7c-1.1,0.7-2.3,1.1-3.6,1.1
-    c-1.2,0-2.4-0.3-3.5-0.9l-0.2-0.2l-2.6,0.7l0.7-2.5l-0.2-0.2c-2-3.3-1-7.5,2.2-9.5s7.4-1,9.4,2.2C23.8,15.5,22.9,19.7,19.7,21.7'
-      />
+    <svg 
+      xmlns='http://www.w3.org/2000/svg' 
+      className={`w-5 h-5 ${className}`}
+      fill='none'
+      viewBox='0 0 24 24' 
+      stroke='currentColor'
+      strokeWidth={1.5}
+    >
+      <path strokeLinecap='round' strokeLinejoin='round' d='M15 10.5a3 3 0 11-6 0 3 3 0 016 0z' />
+      <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z' />
     </svg>
   )
 }

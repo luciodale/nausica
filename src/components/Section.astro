@@ -3,13 +3,14 @@ export type SectionProps = {
   className?: string
   style?: string | Record<string, string | number>
   id?: string
+  narrow?: boolean
 }
 
-const { className, style, id } = Astro.props as SectionProps
+const { className, style, id, narrow } = Astro.props as SectionProps
 ---
 
-<div style={style} class={className} id={id}>
-  <div class='mx-auto px-4 sm:px-12 2xl:px-0 max-w-7xl'>
+<section style={style} class:list={['section-padding', className]} id={id}>
+  <div class:list={[narrow ? 'container-narrow' : 'container-wide']}>
     <slot />
   </div>
-</div>
+</section>
