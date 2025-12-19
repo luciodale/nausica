@@ -3,6 +3,8 @@ import concetta from '../assets/images/concetta.png'
 import heroImage from '../assets/images/foto3.jpg'
 import signature from '../assets/images/signature.png'
 import staff from '../assets/images/staff-nausica.png'
+import bandieraBlu from '../assets/images/bandiera-blu.jpg'
+import attestato from '../assets/images/attestato.jpg'
 
 import HeroBanner from '../components/HeroBanner.astro'
 import { Contact } from '../components/Contact'
@@ -220,6 +222,43 @@ const services = [
             </div>
           ))
         }
+      </div>
+    </Section>
+
+    <!-- Riconoscimenti Section -->
+    <Section id='awards' className='bg-sand-100'>
+      <div class='text-center mb-16'>
+        <span
+          class='text-ocean-600 text-sm font-medium tracking-widest uppercase'
+        >
+          I Nostri Traguardi
+        </span>
+        <h2 class='mt-4 text-ink-900 justify-center'>Riconoscimenti</h2>
+        <div class='divider mt-6'></div>
+        <p class='mt-8 text-ink-600 text-lg leading-relaxed max-w-3xl mx-auto'>
+          Siamo onorati di aver ricevuto importanti riconoscimenti che attestano
+          il nostro impegno e la qualità dei nostri servizi.
+        </p>
+      </div>
+
+      <div
+        class='grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto'
+      >
+        <div class='group overflow-hidden bg-white border border-sand-200'>
+          <img
+            src={bandieraBlu.src}
+            alt='Bandiera Blu - Nausica Beach'
+            class='w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500'
+          />
+        </div>
+
+        <div class='group overflow-hidden bg-white border border-sand-200'>
+          <img
+            src={attestato.src}
+            alt='Attestato Balneatore Longevo - Concetta Faraone'
+            class='w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500'
+          />
+        </div>
       </div>
     </Section>
 
